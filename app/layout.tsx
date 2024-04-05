@@ -24,6 +24,14 @@ export default async function RootLayout({
   const session = await authX();
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="icon shortcut"
+          href="https://assets.vercel.com/image/upload/front/favicon/vercel/favicon.ico"
+          type="image/x-icon"
+        />
+
+      </head>
       <body className={inter.className}>
         <TooltipProvider>
           <AuthXProvider session={session}>
@@ -35,7 +43,7 @@ export default async function RootLayout({
               disableTransitionOnChange
             >
               <Toaster />
-              
+
               {children}
             </ThemeProvider>
           </AuthXProvider>
