@@ -44,7 +44,7 @@ export const sendPaymentRequestForSubscription = async ({ user, total, }: {
             },
             hide_shipping: true,
             callback: `${process.env.URL}/api/payment`,
-            return: "http://localhost:3000/dashboard/wallet",
+            return: `${process.env.URL}/dashboard/wallet`,
             customer_ref: user.id,
             invoice: {
                 shipping_charges: 0,
