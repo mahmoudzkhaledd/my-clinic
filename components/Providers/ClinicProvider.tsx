@@ -2,8 +2,17 @@
 import { Clinic } from "@prisma/client";
 import React, { useContext } from "react";
 import { createContext } from "react";
-const ctx = createContext<Clinic>();
-export const useClinic = () => { 
+const ctx = createContext<Clinic>({
+    id: "",
+    slug: "",
+    name: "",
+    userId: "",
+    contactEmail: "",
+    employeesCount: 0,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+});
+export const useClinic = () => {
     const cont = useContext<Clinic>(ctx);
     return cont;
 };
