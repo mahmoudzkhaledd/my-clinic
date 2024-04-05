@@ -8,6 +8,7 @@ import { CreditCard, HandCoins, ShoppingCart, Wallet, } from "lucide-react";
 import Link from "next/link";
 import TopBanner from "../_components/TopBanner";
 import WalletProvider from "../_components/WalletProvider";
+import NotFoundComponent from "@/components/General/NotFoundComponent";
 
 export default async function WalletPage({ children }: { children: React.ReactNode }) {
   const session = await authX();
@@ -20,7 +21,9 @@ export default async function WalletPage({ children }: { children: React.ReactNo
       transactions: true,
     },
   });
-  if (wallet == null) return;
+  if (wallet == null) return <NotFoundComponent title="Wallet not found" subTitle="Try contact the customer service.">
+
+  </NotFoundComponent>;
 
   return (
     <WalletProvider value={JSON.parse(JSON.stringify(wallet))}>
@@ -28,7 +31,7 @@ export default async function WalletPage({ children }: { children: React.ReactNo
       <div className="grid grid-cols-1  lg:grid-cols-5 gap-4">
         <div className=" col-span-4 space-y-4">
           <TopBanner />
-         
+
           {children}
         </div>
         <div className="  col-span-1 space-y-4">

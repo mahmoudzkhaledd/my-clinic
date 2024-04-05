@@ -5,8 +5,8 @@ import React, { createContext, useContext } from 'react';
 type walletType = Wallet & { transactions: Transaction[] };
 const walletContext = createContext<walletType>({
     id: "string;",
-    balance: new Prisma.Decimal(99),
-    totalSpent: new Prisma.Decimal(99),
+    balance: new Prisma.Decimal(0),
+    totalSpent: new Prisma.Decimal(0),
     currency: "pound",
     userId: "string;",
     createdAt: new Date(),
