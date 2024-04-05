@@ -1,0 +1,230 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String  @id @default(cuid())
+  name          String
+  email         String  @unique
+  password      String
+  phone         String
+  image         String?
+  emailVerified Boolean @default(false)
+
+  clinics      Clinic[]
+  subscription Subscription?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  wallet       Wallet?
+  transactions Transaction[]
+  purchases    Purchases[]
+
+  doctors   Employee[] @relation("doctor")
+  employees Employee[] @relation("employee")
+}
+
+model Wallet {
+  id           String        @id @default(cuid())
+  balance      Decimal       @default(0)
+  totalSpent   Decimal       @default(0)
+  transactions Transaction[]
+  currency     Currency
+  userId       String        @unique
+  user         User          @relation(fields: [userId], references: [id])
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  purchases    Purchases[]
+}
+
+enum TransactionType {
+  withdraw
+  deposit
+  purchase
+}
+
+model Transaction {
+  tran_ref         String          @id
+  merchant_id      Int
+  profile_id       Int
+  cart_id          String
+  cart_description String
+  cart_currency    String
+  cart_amount      String
+  tran_currency    String
+  tran_total       String
+  tran_type        String
+  tran_class       String
+  invoice_id       Int
+  customer_ref     String
+  user             User            @relation(fields: [customer_ref], references: [id])
+  type             TransactionType
+
+  customer_ip              String
+  payment_response_status  String
+  payment_response_code    String
+  payment_response_message String
+  payment_cvv_result       String
+  payment_avs_result       String
+  payment_transaction_time DateTime
+  payment_method           String
+  payment_card_type        String
+  payment_card_scheme      String
+  payment_description      String
+  payment_expiryMonth      Int
+  payment_expiryYear       Int
+  ipn_trace                String
+  wallet                   Wallet   @relation(fields: [walletId], references: [id])
+  walletId                 String
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+}
+
+enum PurchasesType {
+  subscribe
+  renew
+}
+
+model Purchases {
+  id       String        @id @default(cuid())
+  type     PurchasesType
+  user     User          @relation(fields: [userId], references: [id])
+  wallet   Wallet        @relation(fields: [walletId], references: [id])
+  walletId String
+  package  Package       @relation(fields: [packageId], references: [id])
+  amount   Decimal
+
+  userId    String
+  packageId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum SubscriptionState {
+  pending
+  accepted
+  refused
+}
+
+model Subscription {
+  id             String            @id @default(cuid())
+  packageId      String
+  package        Package           @relation(fields: [packageId], references: [id])
+  userId         String            @unique
+  user           User              @relation(fields: [userId], references: [id])
+  state          SubscriptionState @default(pending)
+  refusal_reason String?
+  currentClinics Int               @default(0)
+  renewDate      DateTime
+  duration_days  Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model Package {
+  id                String             @id @default(cuid())
+  name              String
+  description       String
+  fullDescription   String
+  active            Boolean            @default(false)
+  usersCount        Int                @default(0)
+  maxClinics        Int
+  maxEmployees      Int
+  maxStorage        Int
+  price             Float
+  currency          Currency           @default(dollar)
+  afterDiscount     Int?
+  totalPatients     Int                @default(0)
+  thisMonthPatients Int                @default(0)
+  lastMonthPatients Int                @default(0)
+  duration          PackageDuration
+  advantages        PackageAdvantage[]
+  isPopular         Boolean            @default(false)
+  subscriptions     Subscription[]
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  purchases         Purchases[]
+}
+
+model PackageAdvantage {
+  id        String   @id @default(cuid())
+  text      String
+  active    Boolean
+  package   Package  @relation(fields: [packageId], references: [id])
+  packageId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Currency {
+  pound
+  dollar
+}
+
+enum PackageDuration {
+  monthly
+  yearly
+  trail
+}
+
+model Clinic {
+  id             String     @id @default(cuid())
+  slug           String     @unique
+  name           String
+  user           User       @relation(fields: [userId], references: [id])
+  userId         String
+  contactEmail   String
+  employeesCount Int        @default(0)
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+  employees      Employee[]
+
+  @@index([slug, userId])
+}
+
+model Employee {
+  id String @id @default(cuid())
+
+  ssn    String
+  fees   Int
+  banned Boolean  @default(false)
+  status Boolean? // null -> Pending,false-> refused, true -> accepted.
+
+  user   User?   @relation(name: "employee", fields: [userId], references: [id])
+  userId String?
+
+  doctor   User   @relation(name: "doctor", fields: [doctorId], references: [id])
+  doctorId String
+
+  jobTitle  String
+  clinic    Clinic         @relation(fields: [clinicId], references: [id])
+  clinicId  String
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+  roles     EmployeeRole[]
+}
+
+model EmployeeRole {
+  id         Int      @id @default(autoincrement())
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  employeeId String
+  role       Role     @relation(fields: [roleId], references: [id])
+  roleId     Int
+
+  @@unique([employeeId, roleId])
+}
+
+model Role {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  employeeRoles EmployeeRole[]
+}
