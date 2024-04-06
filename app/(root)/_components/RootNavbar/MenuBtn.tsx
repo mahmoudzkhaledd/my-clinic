@@ -20,9 +20,9 @@ export default function MenuBtn() {
                 <div className="mt-6  flex flex-col gap-4">
                     {
                         navbarItems.items.map((e, idx) =>
-                            <Button variant={'ghost'}>
+                            <Button key={idx} variant={'ghost'}>
 
-                                <Link key={idx} href={e.href}>
+                                <Link  href={e.href}>
                                     {e.title}
                                 </Link>
                             </Button>
