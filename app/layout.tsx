@@ -8,7 +8,8 @@ import { authX } from "@/authX";
 import {
   TooltipProvider,
 } from "@/components/ui/tooltip"
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export default async function RootLayout({
       <head>
         <link
           rel="icon shortcut"
-          href="https://assets.vercel.com/image/upload/front/favicon/vercel/favicon.ico"
+          href="favicon.ico"
           type="image/x-icon"
         />
 
