@@ -8,7 +8,7 @@ import { authX } from "@/authX";
 import {
   TooltipProvider,
 } from "@/components/ui/tooltip"
-
+import { Analytics } from "@vercel/analytics/react"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -48,6 +48,7 @@ export default async function RootLayout({
             </ThemeProvider>
           </AuthXProvider>
         </TooltipProvider>
+        <Analytics />
       </body>
     </html>
   );
