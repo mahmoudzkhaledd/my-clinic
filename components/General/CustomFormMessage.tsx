@@ -16,7 +16,7 @@ export default function CustomFormMessage({ message, title, className, children,
         "flex items-center gap-3 p-4 mb-4 text-sm  rounded-lg dark:bg-gray-800 ",
         {
           'bg-green-100': (type == 'success'),
-          "bg-blue-100": (type == 'warning' || type == null),
+          "bg-muted": (type == 'warning' || type == null),
           "bg-red-100": (type == 'error'),
         },
         className,

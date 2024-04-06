@@ -45,7 +45,7 @@ export default async function AllClinics() {
       <hr />
       {
         clinics.length === 0 &&
-        <div className='m-auto flex flex-col  items-center justify-center'>
+        <div className='m-auto flex flex-col  items-center justify-center mt-[200px]'>
           <Image
             className='w-[120px] mb-4'
             src={'/images/project.png'} alt='' width={300} height={300} />

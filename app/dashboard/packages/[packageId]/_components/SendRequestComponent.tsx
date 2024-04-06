@@ -22,7 +22,7 @@ export default function SendRequestButton({ packageId, subscripedPackageId, clas
     };
 
     return (
-        <Button className='flex items-center gap-2 '
+        <Button className='flex items-center gap-2 w-full md:w-fit'
             variant={'success'} size={'sm'}
             disabled={loading || dis} 
             loading={loading}

@@ -8,7 +8,7 @@ export default function PackageHeader({ pkg, userSubscriptionPackageId }: { pkg:
     console.log(userSubscriptionPackageId);
     return (
         <div className=' space-y-9'>
-            <div className='flex items-center  justify-between gap-4'>
+            <div className='flex items-center flex-wrap justify-between gap-5'>
                 <div className='flex gap-4'>
                     <div className='rounded-full w-[60px] aspect-square bg-gray-100 dark:bg-muted border flex justify-center items-center'>
                         <Package2 className='m-auto' />
