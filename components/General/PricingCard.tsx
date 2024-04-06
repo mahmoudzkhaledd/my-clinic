@@ -32,7 +32,7 @@ export default function PricingCard({ pkg }: { pkg: Package & { advantages: Pack
                     ) : null}
                 </CardTitle>
                 <div>
-                    <span className="text-3xl font-bold">{pkg.currency == 'dollar' ? "$" : ""}{pkg.price}{pkg.currency == 'pound' ? "EGP" : ""}</span>
+                    <span className="text-3xl font-bold">{pkg.currency == 'dollar' ? "$" : ""}{pkg.price}{pkg.currency == 'pound' ? " EGP" : ""}</span>
                     <span className="text-muted-foreground"> {pkg.duration == 'monthly' ? "/month" : "/year"}</span>
                 </div>
 
