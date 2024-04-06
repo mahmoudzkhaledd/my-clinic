@@ -14,7 +14,7 @@ export default function LoginRegisterBtns() {
         <div className={cn("flex items-center gap-4",{
             "flex-row-reverse": session,
         })}>
-            {session ? <Link href={'/dashboard/clinics'}>
+            {session ? <Link href={'/dashboard'}>
                 <Button className="h-full">Dashboard</Button>
             </Link>
                 : <div className="flex gap-3 items-center">
