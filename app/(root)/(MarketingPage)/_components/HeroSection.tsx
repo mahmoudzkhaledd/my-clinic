@@ -35,6 +35,7 @@ export default async function HeroSection() {
         className="flex-[3]">
         <Image
           className="ml-auto"
+          loading='eager'
           src={'/images/doctors.svg'}
           width={500}
           height={500} alt="Doctors" />
