@@ -24,9 +24,9 @@ export const subscripeInPackage = async (packageId: string): Promise<SubscripeTy
         },
     });
     if (user == null) return redirect('/');
-    if (user.subscription?.packageId == packageId) {
+    if (user.subscription != null) {
         return {
-            error: "You're currently subscribed on this package!",
+            error: "You're currently subscribed on a package!",
         };
     }
     const pkg = await prisma.package.findUnique({

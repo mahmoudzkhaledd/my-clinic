@@ -12,26 +12,27 @@ export default function SendRequestButton({ packageId, subscripedPackageId, clas
     const [loading, startTrans] = useTransition();
     
     const handleSubmit = () => {
-        if (packageId != subscripedPackageId && !window.confirm("Are you sure to subscribe to this package?")) return;
+        if (subscripedPackageId != null || !window.confirm("Are you sure to subscribe to this package?")) return;
         startTrans(async () => {
             const res = await subscripeInPackage(packageId);
             if (res?.error) {
                 toast.error(res.error);
             }
-        })
+        });
     };
-
+    if(subscripedPackageId != null){
+        return <></>
+    }
     return (
         <Button className='flex items-center gap-2 w-full md:w-fit'
             variant={'success'} size={'sm'}
-            disabled={loading || dis} 
+            disabled={loading || dis } 
             loading={loading}
             onClick={handleSubmit}>
             <Check className='w-5 h-5' />
             {
                 dis ? "Subscribed" : "Subscribe now"
             }
-
         </Button>
     )
 }

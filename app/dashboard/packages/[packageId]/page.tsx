@@ -38,7 +38,9 @@ function UserSubscription({ userSubscription, pkg, }: { userSubscription: any, p
                             userSubscription?.state == 'pending' ?
                                 <p>You currently have an outstanding subscription to this package, and you can monitor updates to your subscription via the <SubscriptionPage />.</p> :
                                 <p>Your subscription to this package has been rejected. Please check the <SubscriptionPage /> for the reason for rejection.</p>
-                        : "Clicking the button below will cancel your current subscription and initiate a new pending subscription with this package."
+                        : <p>
+                            It seems you're already subscribed to a package. If you'd like to subscribe to this, kindly cancel your current subscription first through <SubscriptionPage />.
+                        </p>
                 }
             </CustomFormMessage>
         }
