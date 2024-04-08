@@ -5,7 +5,7 @@ import { SubscriptionProvider, } from '@/components/Providers/SubscriptionProvid
 import { authX } from '@/authX'
 import { redirect } from 'next/navigation'
 import WarningBar from '@/components/General/WarningBar'
-import { getUserSubscription } from '@/lib/helper'
+import { getUserSubscription } from "@/services/subscription/getUserSubscription";
 import Link from 'next/link'
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const session = await authX();

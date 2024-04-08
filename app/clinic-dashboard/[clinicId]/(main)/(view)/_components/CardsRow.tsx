@@ -2,15 +2,18 @@ import React from 'react'
 import { CardTitle, CardHeader, CardContent, Card, CardDescription } from "@/components/ui/card"
 import { Button } from '@/components/ui/button'
 import { CalendarIcon, ClockIcon, UserIcon, UsersIcon } from 'lucide-react'
+import { BarsChart } from './Chart'
 
 export default function CardsRow() {
     return (
         <div className="grid gap-4 md:grid-cols-2">
+            <BarsChart/>
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                     <CardTitle>Upcoming Appointments</CardTitle>
                     <Button size="sm">View all</Button>
                 </CardHeader>
+                <hr />
                 <CardContent className="flex items-center justify-center flex-col gap-4 p-6">
                     <div className="grid grid-cols-2 gap-4 w-full">
                         <div className="flex items-center gap-2">
@@ -46,7 +49,7 @@ export default function CardsRow() {
                     </div>
                 </CardContent>
             </Card>
-            
+
         </div>
     )
 }

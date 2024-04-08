@@ -2,7 +2,7 @@
 import { authX } from "@/authX";
 import { redirect } from 'next/navigation';
 import NoSubscription from '../../../../components/General/NoSubscription';
-import { getUserSubscription } from '@/lib/helper';
+import { getUserSubscription } from "@/services/subscription/getUserSubscription";
 
 export default async function ClinicsLayout({ children, }: { children: any }) {
     const session = await authX();

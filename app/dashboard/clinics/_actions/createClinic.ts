@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import { clinicSchema } from "../../types/ClinicSchema";
 import { customSanatize } from "@/lib/customSantize";
-import { getUserSubscription } from "@/lib/helper";
+import { getUserSubscription } from "@/services/subscription/getUserSubscription";
 interface CreateClinicResponseType {
     error: string;
     seccess?: string;

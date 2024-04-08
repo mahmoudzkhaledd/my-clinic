@@ -10,7 +10,7 @@ import moment from 'moment';
 import CircularProgressbar from "./_components/CircularProgressbar";
 import UnsubscripeButton from "./_components/Unsubscripe";
 import { Progress } from "@/components/ui/progress";
-import { getUserSubscription } from "@/lib/helper";
+import { getUserSubscription } from "@/services/subscription/getUserSubscription";
 import RenewSubComponent from "./_components/RenewSubComponent";
 function isBetween(number: number, first: number, second: number) {
   return number >= first && number < second;

@@ -8,27 +8,13 @@ import Link from 'next/link';
 import { Heading } from '@/components/ui/heading';
 import { Plus } from 'lucide-react';
 import Image from 'next/image';
+import { getUserClinics } from '@/services/clinics/getUserClinics';
 
 export default async function AllClinics() {
   const session = await authX();
   if (!session?.user?.id) redirect('/');
 
-  const clinics = await prisma.clinic.findMany({
-    where: {
-      OR: [
-        {
-          userId: session.user.id,
-        },
-        {
-          employees: {
-            some: {
-              userId: session.user.id,
-            },
-          }
-        }
-      ],
-    }
-  });
+  const clinics = await getUserClinics({ userId: session.user.id });
 
   return (
     <div className='w-full flex flex-col h-full'>

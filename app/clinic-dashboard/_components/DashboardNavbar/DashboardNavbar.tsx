@@ -1,6 +1,4 @@
 "use client"
-import Logo from "@/components/General/Logo";
-
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/General/ThemeToggle";

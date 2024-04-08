@@ -3,9 +3,8 @@ import { addEmployeeSchema } from "@/app/clinic-dashboard/types/AddEmployeeSchem
 import { authX } from "@/authX";
 import { customSanatize } from "@/lib/customSantize";
 import { prisma } from "@/lib/db";
-import { getUserSubscription } from "@/lib/helper";
+import { getUserSubscription } from "@/services/subscription/getUserSubscription";
 import { redirect } from "next/navigation";
-import bcrypt from 'bcryptjs';
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 export async function addNewEmployee(values: any, clinicId: string): Promise<{ error: string; } | null> {
     const session = await authX();

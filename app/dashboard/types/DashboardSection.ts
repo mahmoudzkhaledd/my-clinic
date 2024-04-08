@@ -6,6 +6,7 @@ export interface DashboardSection {
     links: {
         title: string;
         link: string;
+
         action?: () => void;
     }[];
 }
@@ -13,6 +14,7 @@ export interface ClinicDashboardSection extends DashboardSection {
     links: {
         title: string;
         link: string;
+        validation?:  boolean,
         icon?: LucideIcon,
     }[]
 }

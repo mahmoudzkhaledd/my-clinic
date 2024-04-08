@@ -1,6 +1,6 @@
 "use server";
-import { Package, Subscription, SubscriptionState } from "@prisma/client";
-import { prisma } from "./db";
+import { SubscriptionState } from "@prisma/client";
+import { prisma } from "@/lib/db";
 export const getUserSubscription = async ({ userId, includePackage, state, }: { userId: string; includePackage?: boolean, state: SubscriptionState | null }) => {
     const subscription = await prisma.subscription.findUnique({
         where: state ? {
