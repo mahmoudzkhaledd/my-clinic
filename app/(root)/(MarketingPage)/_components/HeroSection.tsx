@@ -40,6 +40,7 @@ export default async function HeroSection() {
           width={500}
           height={500} alt="Doctors" />
       </div>
+      <div className="glow"/>
     </div>
   )
 }

@@ -41,11 +41,13 @@ export default async function ClinicDashboardLayout({ children, params }: { para
         });
     }
     return <ClinicProvider clinic={JSON.parse(JSON.stringify(clinic))}>
-        <DashboardNavbar />
-        <div className="flex   ">
-            <DashboardSidebar />
-            <main className="w-full p-6 ">
-                {children}
+        <DashboardSidebar className="fixed" />
+        <div className="flex  h-full ">
+            <main className="w-full ml-0 lg:ml-72">
+                <DashboardNavbar />
+                <div className="p-6 w-full h-full">
+                    {children}
+                </div>
             </main>
         </div>
     </ClinicProvider>

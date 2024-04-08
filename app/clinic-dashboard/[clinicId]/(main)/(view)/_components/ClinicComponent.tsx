@@ -30,22 +30,7 @@ export default function ClinicComponent() {
                     }
                 </CardContent>
             </Card>
-            <Alert>
-                <Link2 className="h-4 w-4" />
-                <AlertTitle className="mb-3">Login url</AlertTitle>
-                <AlertDescription className="flex items-center justify-between bg-muted rounded p-2">
-                    {
-                        url == null ? <Skeleton className="w-full h-[20px] rounded-md" /> :
-                            <Link target="__blank" href={`${window.location.origin}/clinic-dashboard/${clinic.slug}/login`} className="underline ">
-                                {`${window.location.origin}/clinic-dashboard/${clinic.slug}/login`}
-                            </Link>
-                    }
-
-                    <Button onClick={copyUrl} size={'sm'} variant={'ghost'}>
-                        <Copy className="h-4 w-4" />
-                    </Button>
-                </AlertDescription>
-            </Alert>
+            
         </div>
     )
 }

@@ -7,7 +7,7 @@ import { DashboardSection } from "../../../dashboard/types/DashboardSection";
 const dashboardSections: DashboardSection[] = [
     {
         title: "Clinics",
-        prefix: "/clinics",
+        prefix: "clinics",
         links: [
             {
                 title: "My clinics",
@@ -17,46 +17,46 @@ const dashboardSections: DashboardSection[] = [
     },
     {
         title: "Packages",
-        prefix: "/packages",
+        prefix: "packages",
         links: [
             {
                 title: "Manage subscription",
-                link: "/subscription",
+                link: "subscription",
             },
             {
                 title: "All Packages",
-                link: "/all",
+                link: "all",
             },
         ],
     },
     {
         title: "Account",
-        prefix: "/account",
+        prefix: "account",
         links: [
             {
                 title: "Manage Account",
-                link: "/",
+                link: "",
             },
         ],
     },
     {
         title: "Financial",
-        prefix: "/",
+        prefix: "",
         links: [
             {
                 title: "Wallet",
-                link: "/wallet/transactions",
+                link: "wallet/transactions",
             }
         ],
     },
 
     {
         title: "",
-        prefix: "/",
+        prefix: "",
         links: [
             {
                 title: "Help & Support",
-                link: "/support",
+                link: "support",
             },
         ],
     },

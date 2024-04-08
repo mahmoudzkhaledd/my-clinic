@@ -7,17 +7,26 @@ import { cn } from '@/lib/utils';
 
 export default function SidebarSection({ section, divide }: { divide: boolean, section: ClinicDashboardSection }) {
     const param = useParams();
-
+    const url = usePathname();
+    console.log(url);
     return (
         <>
             <h2 className="mb-2 text-lg px-4 text-gray-500 tracking-tight">
                 {section.title}
             </h2>
-            <div className='space-y-2 px-4 mb-2'>
+            <div className='space-y-1 px-4 mb-2'>
                 {
                     section.links.map((e, idx) => {
-                        return <Link className='block' key={idx} href={`/clinic-dashboard/${param.clinicId}${section.prefix}${e.link}`}>
-                            <Button size={'sm'} className={cn('w-full flex items-center gap-2 justify-start text-start',)} variant={'ghost'}>
+                        const pattern = new RegExp(`/clinic-dashboard/\\w+/${e.link}`);
+                        
+                        return <Link className='block group' key={idx} href={`/clinic-dashboard/${param.clinicId}/${e.link}`}>
+                            <Button size={'sm'} className={cn(
+                                'w-full flex items-center  gap-2 justify-start text-start',
+                                {
+                                    "bg-gray-100 dark:text-gray-950  dark:hover:text-white":
+                                    pattern.test(url) || (url == `/clinic-dashboard/${param.clinicId}` && e.link == '/')
+                                }
+                                )} variant={'ghost'}>
                                 {e.icon && <e.icon className='w-4 h-4' />}
                                 <p className=' capitalize'>{e.title}</p>
                             </Button>

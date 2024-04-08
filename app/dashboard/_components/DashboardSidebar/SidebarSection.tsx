@@ -11,6 +11,7 @@ export default function SidebarSection({ section, divide }: { divide: boolean, s
 
 
 
+
     return (
         <>
             <h2 className="mb-2 text-lg px-4 text-gray-500 tracking-tight">
@@ -19,12 +20,15 @@ export default function SidebarSection({ section, divide }: { divide: boolean, s
             <div className='space-y-2 px-4 mb-2'>
                 {
                     section.links.map((e, idx) => {
+    
                         const lnk = `${section.prefix}${e.link}`.replaceAll('/', "");
-                        return <Link className='block' key={idx} href={`/dashboard/${section.prefix}${e.link}`}>
+                     
+                        return <Link className='block' key={idx} href={`/dashboard/${section.prefix}/${e.link}`}>
                             <Button onClick={e.action} size={'sm'} className={cn(
                                 'w-full flex justify-start text-start ',
                                 {
-                                    "bg-gray-100 dark:text-gray-950 dark:hover:text-white": url == lnk
+                                    "bg-gray-100 dark:text-gray-950 dark:hover:text-white":
+                                        url == lnk
                                 }
                             )} variant={'ghost'}>
                                 <p>{e.title}</p>

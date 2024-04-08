@@ -9,8 +9,71 @@ body,
 }
 
 
+
+.glow {
+  position: absolute;
+  background: hsl(var(--glow-effect) / 0%);
+  border-radius: 24px;
+  rotate: 35deg;
+
+  width: 260px;
+  top: 200px;
+  height: 400px;
+  filter: blur(150px);
+  animation: glow-slide infinite 4s linear alternate;
+}
+
+@keyframes glow-slide {
+  from {
+    background: hsl(var(--glow-effect) / 20%);
+    right: 460px;
+  }
+  to {
+    background: hsl(var(--glow-effect) / 80%);
+    right: 160px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .glow {
+    top: 70px;
+  }
+
+  @keyframes glow-slide {
+    from {
+      background: hsl(var(--glow-effect) / 20%);
+      right: 460px;
+    }
+    to {
+      background: hsl(var(--glow-effect) / 50%);
+      right: 160px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .glow {
+    top: 70px;
+    width: 100px;
+    height: 350px;
+    filter: blur(60px);
+  }
+
+  @keyframes glow-slide {
+    from {
+      background: hsl(var(--glow-effect) / 20%);
+      right: 280px;
+    }
+    to {
+      background: hsl(var(--glow-effect) / 30%);
+      right: 100px;
+    }
+  }
+}
+
 @layer base {
   :root {
+    --glow-effect: 142.1 70.6% 45.3%;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -34,6 +97,7 @@ body,
   }
 
   .dark {
+    --glow-effect: 142.1 70.6% 45.3%;
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;

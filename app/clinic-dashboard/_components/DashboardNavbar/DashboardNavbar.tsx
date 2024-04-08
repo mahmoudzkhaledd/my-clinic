@@ -43,7 +43,8 @@ export default function DashboardNavbar({ className }: { className?: string }) {
       className)}>
 
       <nav className="h-14  flex items-center justify-between ">
-        <Logo to="/" />
+        {/* <Logo to="/" /> */}
+        <div />
         <div className="items-center gap-2 hidden lg:flex">
           {
             navbarItems.items.map((e, idx) =>
