@@ -14,7 +14,7 @@ const dashboardSections: ClinicDashboardSection[] = [
         prefix: "/",
         links: [
             {
-                title: "Home",
+                title: "Overview",
                 link: "/",
                 icon: Home
             },
@@ -96,11 +96,11 @@ export default function DashboardSidebar({ sheet, className }: { sheet?: boolean
             <div className="space-y-0 ">
                 <div className="flex h-[60px] mb-4 items-center border-b px-6">
                     <Link className="flex items-center gap-2 font-semibold " href="#">
-                        <Activity className="h-6 w-6" />
+                        <Activity className="h-6 w-6 " />
                         <span className="truncate w-[150px]  text-md p-4">{clinic.name}</span>
                     </Link>
                     <Button className="ml-auto h-8 w-8" size="icon" variant="outline">
-                        <BellIcon className="h-4 w-4" />
+                        <BellIcon className="h-4 w-4 " />
                         <span className="sr-only">Toggle notifications</span>
                     </Button>
                 </div>

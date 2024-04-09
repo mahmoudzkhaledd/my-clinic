@@ -32,7 +32,7 @@ export default function SidebarSection({ section, divide }: { divide: boolean, s
                                         pattern.test(url) || (url == `/clinic-dashboard/${param.clinicId}` && e.link == '/')
                                 }
                             )} variant={'ghost'}>
-                                {e.icon && <e.icon className='w-4 h-4' />}
+                                {e.icon && <e.icon className='w-4 h-4 group-hover:animate-wave' />}
                                 <p className=' capitalize'>{e.title}</p>
                             </Button>
                         </Link>;

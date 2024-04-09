@@ -1,5 +1,5 @@
 "use client";
-import { Clinic } from "@prisma/client";
+import { Clinic, User } from "@prisma/client";
 import React, { useContext } from "react";
 import { createContext } from "react";
 const ctx = createContext<Clinic>({
@@ -11,6 +11,7 @@ const ctx = createContext<Clinic>({
     employeesCount: 0,
     createdAt: new Date(),
     updatedAt: new Date(),
+   
 });
 export const useClinic = () => {
     const cont = useContext<Clinic>(ctx);

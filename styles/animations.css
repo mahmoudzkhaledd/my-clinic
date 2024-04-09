@@ -1,0 +1,74 @@
+.shake:hover {
+    animation: shaking 2.5s infinite ease-out;
+
+}
+
+@keyframes shaking {
+
+    0% {
+        -webkit-transform: rotate(-12deg);
+        -ms-transform: rotate(-12deg);
+        transform: rotate(-12deg);
+    }
+
+    8% {
+        -webkit-transform: rotate(12deg);
+        -ms-transform: rotate(12deg);
+        transform: rotate(12deg);
+    }
+
+    10% {
+        -webkit-transform: rotate(24deg);
+        -ms-transform: rotate(24deg);
+        transform: rotate(24deg);
+    }
+
+    18%,
+    20% {
+        -webkit-transform: rotate(-24deg);
+        -ms-transform: rotate(-24deg);
+        transform: rotate(-24deg);
+    }
+
+    28%,
+    30% {
+        -webkit-transform: rotate(24deg);
+        -ms-transform: rotate(24deg);
+        transform: rotate(24deg);
+    }
+
+    38%,
+    40% {
+        -webkit-transform: rotate(-24deg);
+        -ms-transform: rotate(-24deg);
+        transform: rotate(-24deg);
+    }
+
+    48%,
+    50% {
+        -webkit-transform: rotate(24deg);
+        -ms-transform: rotate(24deg);
+        transform: rotate(24deg);
+    }
+
+    58%,
+    60% {
+        -webkit-transform: rotate(-24deg);
+        -ms-transform: rotate(-24deg);
+        transform: rotate(-24deg);
+    }
+
+    68% {
+        -webkit-transform: rotate(24deg);
+        -ms-transform: rotate(24deg);
+        transform: rotate(24deg);
+    }
+
+    100%,
+    75% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+}

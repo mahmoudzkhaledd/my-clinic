@@ -19,6 +19,7 @@ export default async function ClinicDashboardLayout({ children, params }: { para
 
     const clinic = await getUserClinicByIdOrSlug({
         clinicId: params.clinicId,
+        
     });
     if (!clinic) {
         return NotFoundComponent({

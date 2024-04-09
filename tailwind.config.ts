@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss"
 import colors from 'tailwindcss/colors';
+import { waveAnimation } from "./styles/animations/wave_animation";
 const config = {
   darkMode: ["class"],
   content: [
@@ -19,6 +20,7 @@ const config = {
       },
     },
     extend: {
+
       colors: {
         tremor: {
           brand: {
@@ -152,10 +154,12 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "wave": waveAnimation,
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "wave": 'wave 2s linear infinite'
       },
     },
   },
