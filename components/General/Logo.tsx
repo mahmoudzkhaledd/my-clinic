@@ -5,10 +5,10 @@ export default function Logo({ to, newPage, className }: { to?: string, newPage?
     return (
         <Link
             href={to || "/"}
-            className={cn("font-bold text-lg", className)}
+            className={cn("font-bold text-2xl", className)}
             target={newPage ? "_blank" : "_self"}
         >
-            CLINIC
+            MYCLINIX
         </Link>
     )
 }

@@ -8,9 +8,17 @@ import MenuBtn from "./MenuBtn";
 
 export default function RootNavbar({ className }: { className?: string }) {
   return (
-    <div className={cn(
-      "fixed top-0 left-0 right-0 px-4 md:px-[50px] lg:px-[100px] supports-backdrop-blur:bg-background/60 border-b bg-background/95 backdrop-blur ",
-      className)}>
+    <div
+      style={{
+        backdropFilter: "saturate(180 %) blur(5px)",
+        background: "hsla(0, 0 %, 100 %, .8)",
+        boxShadow: "inset 0 -1px 0 0 var(--accents-2)",
+      }}
+      className={
+        cn(
+          "fixed top-0 left-0 z-10 right-0 px-4 md:px-[50px] lg:px-[100px] supports-backdrop-blur:bg-background/60 border-b bg-background/95 backdrop-blur ",
+          className)
+      } >
       <nav className="h-14  flex items-center justify-between ">
         <Logo to="/" className="md:block hidden" />
         <MenuBtn />
@@ -24,6 +32,6 @@ export default function RootNavbar({ className }: { className?: string }) {
         </div>
         <LoginRegisterBtns />
       </nav>
-    </div>
+    </div >
   );
 }

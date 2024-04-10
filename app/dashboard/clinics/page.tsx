@@ -1,5 +1,4 @@
-"use server";
-import { prisma } from '@/lib/db';
+
 import { authX } from "@/authX";
 import { redirect } from 'next/navigation';
 import ClinicCard from './_components/ClinicCard';
@@ -9,6 +8,12 @@ import { Heading } from '@/components/ui/heading';
 import { Plus } from 'lucide-react';
 import Image from 'next/image';
 import { getUserClinics } from '@/services/clinics/getUserClinics';
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "Clinics",
+}
 
 export default async function AllClinics() {
   const session = await authX();

@@ -1,7 +1,6 @@
 
 import RootNavbar from './_components/RootNavbar/RootNavbar'
 
-import Footer from './_components/Footer';
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
 
     return (
@@ -11,8 +10,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
 
             <RootNavbar />
-            <div className=" mt-[60px] px-4 md:px-[50px] lg:px-[0px] ">
-
+            <div className=" mt-[100px] px-4 md:px-[50px] lg:px-[0px] ">
                 {children}
             </div>
             {/* <Footer /> */}
