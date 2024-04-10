@@ -38,7 +38,7 @@ export default async function HeroSection({ className }: { className?: string; }
       <div
         className="flex-[3]">
         <Image
-          className="ml-auto z-0 invert dark:invert-0"
+          className="ml-auto z-0 mr-auto mb-5 lg:mb-0 lg:mr-0 invert dark:invert-0"
           loading='eager'
           src={'/images/logo.svg'}
           width={250}
