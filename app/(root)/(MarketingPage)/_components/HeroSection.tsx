@@ -14,7 +14,7 @@ export default async function HeroSection({ className }: { className?: string; }
     )}>
       <div className="flex-[2]">
         <h2 className="text-xl  mb-3 lg:text-5xl font-bold">
-          Online Store Builder - Create Your Own Store
+          Simplify clinic management with our online solution
         </h2>
         <p className=" text-gray-400">
           Elevate your clinic's efficiency with our integrated platform. Experience streamlined operations and enhanced patient care.

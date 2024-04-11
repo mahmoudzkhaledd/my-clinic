@@ -13,7 +13,7 @@ export default function CardsRow() {
             <BarsChart />
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-                    <CardTitle>Your clinic</CardTitle>
+                    <CardTitle>Clinic Info</CardTitle>
                 </CardHeader>
                 <hr />
                 <CardContent className="flex items-center  justify-center flex-col gap-4 p-6">

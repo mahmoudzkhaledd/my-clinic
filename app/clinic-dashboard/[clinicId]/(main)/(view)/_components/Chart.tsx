@@ -44,7 +44,7 @@ export function BarsChart() {
   return (
     <div>
       <h3 className="text-lg font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
-        Average BPM
+        Patients accross the week
       </h3>
       <BarChart
         className="h-72"
