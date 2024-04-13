@@ -12,6 +12,7 @@ import {
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import OnlineOfflineProvider from "@/components/Providers/OnlineOfflineProvider";
+import WebAnalytix from "@/components/WebAnalytix/WebAnalytix";
 const inter = Inter({ subsets: ["latin"] });
 const websiteName = 'MyClinix - Clinics management system';
 export const metadata: Metadata = {
@@ -56,6 +57,7 @@ export default async function RootLayout({
               <Toaster />
               <OnlineOfflineProvider>
                 {children}
+                <WebAnalytix />
               </OnlineOfflineProvider>
             </ThemeProvider>
           </AuthXProvider>
