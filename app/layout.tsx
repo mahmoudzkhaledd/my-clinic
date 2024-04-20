@@ -9,6 +9,8 @@ import { authX } from "@/authX";
 import {
   TooltipProvider,
 } from "@/components/ui/tooltip"
+import PlausibleProvider from 'next-plausible'
+
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import OnlineOfflineProvider from "@/components/Providers/OnlineOfflineProvider";
@@ -44,26 +46,29 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
 
       <body className={inter.className}>
+        <PlausibleProvider domain="https://myclinix.vercel.app">
 
-        <TooltipProvider>
-          <AuthXProvider session={session}>
 
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="dark"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <Toaster />
-              <OnlineOfflineProvider>
-                {children}
-                <WebAnalytix />
-              </OnlineOfflineProvider>
-            </ThemeProvider>
-          </AuthXProvider>
-        </TooltipProvider>
-        <SpeedInsights />
-        <Analytics />
+          <TooltipProvider>
+            <AuthXProvider session={session}>
+
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="dark"
+                enableSystem
+                disableTransitionOnChange
+              >
+                <Toaster />
+                <OnlineOfflineProvider>
+                  {children}
+                  <WebAnalytix />
+                </OnlineOfflineProvider>
+              </ThemeProvider>
+            </AuthXProvider>
+          </TooltipProvider>
+          <SpeedInsights />
+          <Analytics />
+        </PlausibleProvider>
       </body>
     </html>
   );
