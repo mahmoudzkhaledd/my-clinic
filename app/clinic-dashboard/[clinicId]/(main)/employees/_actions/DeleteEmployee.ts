@@ -1,6 +1,6 @@
 'use server';
 import { authX } from "@/authX";
-
+import { prisma } from "@/lib/db";
 import { redirect } from "next/navigation";
 export async function deleteEmployee(employeeId: string): Promise<{ error: string; } | null> {
     const session = await authX();
